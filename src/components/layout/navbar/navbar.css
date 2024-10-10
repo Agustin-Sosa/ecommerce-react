@@ -1,0 +1,24 @@
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: coral;
+  padding: 2rem;
+}
+
+.container-navbar ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.container-navbar ul li {
+  list-style: none;
+}
+
+.container-navbar ul li:hover {
+  text-decoration: underline;
+}
+
+.logo-img {
+  width: 80px;
+}
