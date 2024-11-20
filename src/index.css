@@ -1,5 +1,27 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: 0;
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+footer {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-top: 1px solid black;
+  background-color: coral;
 }

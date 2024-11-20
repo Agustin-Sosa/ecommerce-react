@@ -15,8 +15,8 @@ export const Navbar = () => {
         </Link>
         <ul>
           <Link to="/">Inicio</Link>
-          <Link to="/category/asado">Asado</Link>
-          <Link to="/category/estufa">Estufa</Link>
+          <Link to="/category/Para Asado">Para Asado</Link>
+          <Link to="/category/Para Calefacción">Para Calefacción</Link>
           <Link to="/">Contacto</Link>
         </ul>
         <CartWidget />
