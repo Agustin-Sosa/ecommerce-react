@@ -75,7 +75,9 @@ export const ItemListContainer = () => {
         ¡Bienvenido! Somos una empresa familiar destinada a la produccion y
         comercializacion de leña y carbón.
       </h2>
-      <ItemList myProducts={myProducts} />
+      <div>
+        <ItemList myProducts={myProducts} />
+      </div>
       {/* <button onClick={funcionParaAgregar}>cargar productos</button> */}
     </div>
   );

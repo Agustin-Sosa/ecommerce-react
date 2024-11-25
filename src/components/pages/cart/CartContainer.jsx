@@ -2,7 +2,8 @@ import { Button } from "@mui/material";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import DeleteIcon from "@mui/icons-material/Delete";
+import "./cart.css";
 
 export const CartContainer = () => {
   const { cart, resetCart, removeById, getTotalAmount } =
@@ -10,38 +11,65 @@ export const CartContainer = () => {
 
   let totalEnElCarrito = getTotalAmount();
 
+  if (cart.length === 0) {
+    return (
+      <>
+        <h1 className="cart-title">Carrito de compras</h1>
+        <div className="cart-vacio">
+          <h3>Carrito vacío</h3>
+
+          <Link to="/">
+            <Button variant="contained">Continuar comprando</Button>
+          </Link>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div>
-      <h1>Carrito de compras</h1>
-      {cart.map((product) => {
-        return (
-          <div
-            key={product.id}
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              display: "flex",
-              gap: "50px",
-            }}
-          >
-            <h2>{product.title}</h2>
-            <h3>Cantidad: {product.quantity}</h3>
-            <button onClick={() => removeById(product.id)}>
-              Eliminar <DeleteForeverIcon />
-            </button>
+    <>
+      <h1 className="cart-title">Carrito de compras</h1>
+      <div className="cart-container">
+        {cart.map((product) => {
+          return (
+            <>
+              <div>
+                <div className="item-cart" key={product.id}>
+                  <h2>{product.title}</h2>
+                  <h3>Cantidad: {product.quantity}</h3>
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    startIcon={<DeleteIcon />}
+                    onClick={() => removeById(product.id)}
+                  >
+                    Eliminar
+                  </Button>
+                </div>
+              </div>
+            </>
+          );
+        })}
+        {cart.length > 0 && (
+          <div className="">
+            <Button variant="outlined" color="error" onClick={resetCart}>
+              Limpiar carrito
+            </Button>
           </div>
-        );
-      })}
-
-      {cart.length > 0 && <button onClick={resetCart}>Limpiar carrito</button>}
-
-      {cart.length > 0 && <h2>Total a pagar: $ {totalEnElCarrito}</h2>}
-
-      {cart.length > 0 && (
-        <Link to="/checkout">
-          <Button>Finalizar Compra</Button>
-        </Link>
-      )}
-    </div>
+        )}
+        {cart.length > 0 && (
+          <div className="">
+            <h2>Total a pagar: $ {totalEnElCarrito}</h2>
+          </div>
+        )}
+        {cart.length > 0 && (
+          <Link to="/checkout" className="">
+            <Button variant="contained" color="success">
+              Finalizar Compra
+            </Button>
+          </Link>
+        )}
+      </div>
+    </>
   );
 };
