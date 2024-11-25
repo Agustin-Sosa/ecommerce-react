@@ -5,6 +5,7 @@ import { CartContext } from "../../../context/CartContext";
 import { toast } from "sonner";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
+import { Skeleton } from "@mui/material";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -26,6 +27,20 @@ export const ItemDetailContainer = () => {
     addToCart(objeto);
     toast.success("Producto agregado con éxito", { closeButton: true });
   };
+
+  if (!item || !item.id) {
+    return (
+      <>
+        <div style={{ display: "flex", gap: "20px" }}>
+          <div>
+            <Skeleton variant="rectangular" width={200} height={100} />
+            <Skeleton variant="text" width={200} height={100} />
+            <Skeleton variant="rounded" width={200} height={60} />
+          </div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <ItemDetail

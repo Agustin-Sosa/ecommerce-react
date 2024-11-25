@@ -13,7 +13,7 @@ export const CartWidget = () => {
     <div>
       <Link to="/cart">
         <Badge badgeContent={totalUnidades} color="primary">
-          <ShoppingCartIcon />
+          <ShoppingCartIcon sx={{ fontSize: 30 }} />
         </Badge>
       </Link>
     </div>

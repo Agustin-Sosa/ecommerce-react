@@ -15,7 +15,7 @@ const Counter = ({ stock, agregarAlCarrito, totalInCart }) => {
   return (
     <div>
       <button onClick={sumar}>Sumar</button>
-      <h2>Contador = {contador}</h2>
+      <h2>Cantidad = {contador}</h2>
       <button onClick={restar}>Restar</button>
 
       <button onClick={() => agregarAlCarrito(contador)}>

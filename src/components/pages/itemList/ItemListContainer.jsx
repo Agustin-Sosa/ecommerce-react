@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Skeleton } from "@mui/material";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs, query, where, addDoc } from "firebase/firestore";
-import { products } from "../../../products";
+import "./itemList.css";
 
 export const ItemListContainer = () => {
   const { name } = useParams();
@@ -59,15 +59,20 @@ export const ItemListContainer = () => {
             <Skeleton variant="text" width={200} height={100} />
             <Skeleton variant="rounded" width={200} height={60} />
           </div>
+          <div>
+            <Skeleton variant="rectangular" width={200} height={100} />
+            <Skeleton variant="text" width={200} height={100} />
+            <Skeleton variant="rounded" width={200} height={60} />
+          </div>
         </div>
       </>
     );
   }
 
   return (
-    <div>
-      <h2>
-        Bienvenido! Somos una empresa familiar destinada a la produccion y
+    <div className="item-list-container">
+      <h2 className="title">
+        ¡Bienvenido! Somos una empresa familiar destinada a la produccion y
         comercializacion de leña y carbón.
       </h2>
       <ItemList myProducts={myProducts} />

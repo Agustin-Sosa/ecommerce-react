@@ -6,6 +6,7 @@ export const ItemDetail = ({ item, agregarAlCarrito, totalInCart }) => {
       <img src={item.imageUrl} alt="" style={{ width: "300px" }} />
       <h2>{item.title}</h2>
       <h4>{item.description}</h4>
+      <h4>Stock: {item.stock}</h4>
       <Counter
         stock={item.stock}
         agregarAlCarrito={agregarAlCarrito}

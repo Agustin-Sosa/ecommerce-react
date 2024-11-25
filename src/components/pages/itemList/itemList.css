@@ -1,0 +1,17 @@
+.item-list-container {
+  background-color: coral;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin: 1rem;
+  font-family: cursive;
+  font-weight: 600;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

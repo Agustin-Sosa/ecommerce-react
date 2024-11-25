@@ -19,7 +19,7 @@ export const Navbar = () => {
           <Link to="/category/Para Calefacción">Para Calefacción</Link>
           <Link to="/">Contacto</Link>
         </ul>
-        <CartWidget />
+        <CartWidget className="" />
       </div>
     </>
   );
